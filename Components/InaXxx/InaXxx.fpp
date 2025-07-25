@@ -2,21 +2,17 @@ module InaXxx {
     @ Manager component to handle Texas Instruments INAxxx voltage/current sensors
     passive component InaXxx {
 
-        ##############################################################################
-        #### Uncomment the following examples to start customizing your component ####
-        ##############################################################################
-
         # @ Example async command
         # async command COMMAND_NAME(param_name: U32)
 
         # @ Example telemetry counter
         # telemetry ExampleCounter: U64
 
-        # @ Example event
-        # event ExampleStateEvent(example_state: Fw.On) severity activity high id 0 format "State set to {}"
+        @ Event: error initializing INAxxx device
+        event InaXxxDeviceInitFailure(error: Drv.I2cStatus) severity fatal format "INAxxx device initialization failed: {}"
 
-        # @ Example port: receiving calls from the rate group
-        # sync input port run: Svc.Sched
+        @ Port to receive calls from the rate group
+        sync input port run: Svc.Sched
 
         # @ Example parameter
         # param PARAMETER_NAME: U32

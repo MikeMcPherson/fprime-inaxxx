@@ -5,6 +5,7 @@
 // ======================================================================
 
 #include "Components/InaXxx/InaXxx.hpp"
+#include "Drv/LinuxI2cDriver/LinuxI2cDriver.hpp"
 
 namespace InaXxx {
 
@@ -16,13 +17,26 @@ namespace InaXxx {
     InaXxx(const char* const compName) :
       InaXxxComponentBase(compName)
   {
-
+    
   }
 
   InaXxx ::
     ~InaXxx()
   {
 
+  }
+
+  // ----------------------------------------------------------------------
+  // Handler implementations for typed input ports
+  // ----------------------------------------------------------------------
+
+  void InaXxx ::
+    run_handler(
+        FwIndexType portNum,
+        U32 context
+    )
+  {
+    // TODO
   }
 
 }

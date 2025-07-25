@@ -29,6 +29,20 @@ namespace InaXxx {
       //! Destroy InaXxx object
       ~InaXxx();
 
+    PRIVATE:
+
+      // ----------------------------------------------------------------------
+      // Handler implementations for typed input ports
+      // ----------------------------------------------------------------------
+
+      //! Handler implementation for run
+      //!
+      //! Port to receive calls from the rate group
+      void run_handler(
+          FwIndexType portNum, //!< The port number
+          U32 context //!< The call order
+      ) override;
+
   };
 
 }
