@@ -73,7 +73,7 @@ module inaDeploy {
   instance i2cBus: Drv.LinuxI2cDriver base id 0x10016000 {
     phase Fpp.ToCpp.Phases.configComponents """
     if (!i2cBus.open("/dev/i2c-0")) {
-//         Fw::Logger::log("[ERROR] Failed to open I2C device\\n");
+//      Fw::Logger::log("[ERROR] Failed to open I2C device\\n");
     }
     """
   }

@@ -1,10 +1,17 @@
 module InaXxx {
     @ Manager component for Texas Instruments INAxxx voltage/current sensors
+
+    @ struct for INAxxx samples
+    struct i2c_sample {
+        device_id: U16,
+        data: U32
+    }
+
     active component InaXxx {
 
         @ Command: initial configuration of the INAxxx device
         async command CONFIGURE_INAXXX(
-                        device_name: string, 
+                        device_id: U16, 
                         i2c_address: U32, 
                         range: U8, 
                         gain: U8, 
@@ -15,7 +22,7 @@ module InaXxx {
 
         @ Command: read data from the INAxxx device
         async command READ_INAXXX(
-                        device_name: string, 
+                        device_id: U16, 
                         i2c_address: U32)
 
 
@@ -35,6 +42,9 @@ module InaXxx {
 
         @ Port: write, then read data from device
         output port writeRead: Drv.I2cWriteRead
+
+        @ Channel: INAxxx Data Channel
+        telemetry i2c_sample: i2c_sample
 
         # @ Example parameter
         # param PARAMETER_NAME: U32

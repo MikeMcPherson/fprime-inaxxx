@@ -63,7 +63,7 @@
 #define DEFAULT_CONFIG (RANGE_32V | GAIN_8_320MV | BUS_ADC_12BIT | SHUNT_ADC_12BIT | MODE_FLAG_CONTINUOUS | MODE_SHUNT_BUS_VOLTAGE)
 
 #include "Components/InaXxx/InaXxxComponentAc.hpp"
-#include "Fw/FPrimeBasicTypes.hpp"
+// #include "Fw/FPrimeBasicTypes.hpp"
 
 namespace InaXxx {
 
@@ -94,7 +94,7 @@ class InaXxx final : public InaXxxComponentBase {
     void CONFIGURE_INAXXX_cmdHandler(
       FwOpcodeType opCode,  //!< The opcode
       U32 cmdSeq,           //!< The command sequence number
-      const Fw::CmdStringArg& device_name,
+      U16 device_id,
       U32 i2c_address,
       U8 range,
       U8 gain,
@@ -110,7 +110,7 @@ class InaXxx final : public InaXxxComponentBase {
     void READ_INAXXX_cmdHandler(
       FwOpcodeType opCode,  //!< The opcode
       U32 cmdSeq,           //!< The command sequence number
-      const Fw::CmdStringArg& device_name,
+      U16 device_id,
       U32 i2c_address
     ) override;
 };

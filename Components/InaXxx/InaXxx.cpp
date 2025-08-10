@@ -24,7 +24,7 @@ void InaXxx ::
     CONFIGURE_INAXXX_cmdHandler(
         FwOpcodeType opCode,
         U32 cmdSeq,
-        const Fw::CmdStringArg& device_name,
+        U16 device_id,
         U32 i2c_address,
         U8 range,
         U8 gain,
@@ -41,11 +41,14 @@ void InaXxx ::
     READ_INAXXX_cmdHandler(
         FwOpcodeType opCode,
         U32 cmdSeq,
-        const Fw::CmdStringArg& device_name,
+        U16 device_id,
         U32 i2c_address) 
     {
-        // this->writeRead_out(i2c_address, 0x40, m_i2cWriteBuffer[0], m_i2cReadBuffer[0]); // Example write/read operation
-        // this->tlmWrite_voltage(12.5); // Example telemetry write operation
+        i2c_sample sample;
+        this->writeRead_out(0, i2c_address, m_i2cWriteBuffer[0], m_i2cReadBuffer[0]); // Example write/read operation
+        sample.set_device_id(device_id);
+        sample.set_data(5);
+        this->tlmWrite_i2c_sample(sample); // Example telemetry write operation
         this->cmdResponse_out(opCode, cmdSeq, Fw::CmdResponse::OK);
     }
 
