@@ -1,13 +1,13 @@
 module InaXxx {
     @ Manager component for Texas Instruments INAxxx voltage/current sensors
 
-    @ struct for INAxxx samples
-    struct i2c_sample {
-        device_id: U16,
-        data: U32
-    }
-
     active component InaXxx {
+
+        @ struct for INAxxx samples
+        struct i2c_sample {
+            device_id: U16,
+            data: U32
+        }
 
         @ Command: initial configuration of the INAxxx device
         async command CONFIGURE_INAXXX(

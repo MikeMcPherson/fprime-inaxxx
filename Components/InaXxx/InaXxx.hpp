@@ -63,7 +63,6 @@
 #define DEFAULT_CONFIG (RANGE_32V | GAIN_8_320MV | BUS_ADC_12BIT | SHUNT_ADC_12BIT | MODE_FLAG_CONTINUOUS | MODE_SHUNT_BUS_VOLTAGE)
 
 #include "Components/InaXxx/InaXxxComponentAc.hpp"
-// #include "Fw/FPrimeBasicTypes.hpp"
 
 namespace InaXxx {
 
@@ -83,6 +82,7 @@ class InaXxx final : public InaXxxComponentBase {
   private:
       Fw::Buffer m_i2cWriteBuffer[4]; //!< Buffer for I2C write operations
       Fw::Buffer m_i2cReadBuffer[4]; //!< Buffer for I2C read operations
+      InaXxx_i2c_sample m_sample;
 
     // ----------------------------------------------------------------------
     // Handler implementations for commands
