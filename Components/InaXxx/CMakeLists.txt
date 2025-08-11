@@ -19,8 +19,7 @@ register_fprime_library(
         "${CMAKE_CURRENT_LIST_DIR}/InaXxx.fpp"
     SOURCES
         "${CMAKE_CURRENT_LIST_DIR}/InaXxx.cpp"
-    DEPENDS
-        Fw_Types
+#    DEPENDS
 #       MyPackage_MyOtherModule
 )
 
@@ -32,7 +31,6 @@ register_fprime_ut(
         "${CMAKE_CURRENT_LIST_DIR}/test/ut/InaXxxTestMain.cpp"
         "${CMAKE_CURRENT_LIST_DIR}/test/ut/InaXxxTester.cpp"
     DEPENDS
-        Fw_Types
         STest # For rules-based testing
     UT_AUTO_HELPERS
 )

@@ -82,7 +82,7 @@ class InaXxx final : public InaXxxComponentBase {
   private:
       Fw::Buffer m_i2cWriteBuffer[4]; //!< Buffer for I2C write operations
       Fw::Buffer m_i2cReadBuffer[4]; //!< Buffer for I2C read operations
-      InaXxx_i2c_sample m_sample;
+      ina_sample m_sample;
 
     // ----------------------------------------------------------------------
     // Handler implementations for commands
